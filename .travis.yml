@@ -13,6 +13,7 @@ script:
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 deploy:
+  skip_cleanup: true
   provider: script
   script:
     docker tag docker-from-zero-to-mastery-java:latest brunocesar96/docker-from-zero-to-mastery-java:$TRAVIS_JOB_ID;
